@@ -39,11 +39,20 @@
                     </router-link>
                 </div>
             </nav>
-            <div>
-                <div></div>
-                <div>
-                    <router-view></router-view>
+            <div class="flex-1 flex-col flex h-screen overflow-y-hidden">
+                <div class="h-16 px-6 border-b border-gray-400 flex items-center justify-between">
+                    <div>
+                        Contacts
+                    </div>
+                    <div class="border-gray-400 rounded-full text-white bg-blue-400 w-10 h-10 flex justify-center items-center">
+                        VG
+                    </div>
                 </div>
+                <div class="flex flex-col overflow-y-hidden flex-1">
+                    <router-view class="p-6 overflow-x-hidden"></router-view>
+                </div>
+                
+
             </div>
         </div>
         
