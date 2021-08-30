@@ -44,9 +44,8 @@
                     <div>
                         Contacts
                     </div>
-                    <div class="border-gray-400 rounded-full text-white bg-blue-400 w-10 h-10 flex justify-center items-center">
-                        VG
-                    </div>
+                    <user-circle :name="user.name"></user-circle>
+                    
                 </div>
                 <div class="flex flex-col overflow-y-hidden flex-1">
                     <router-view class="p-6 overflow-x-hidden"></router-view>
@@ -60,17 +59,23 @@
 </template>
 
 <script>
+    import UserCircle from '../components/UserCircle.vue'
     export default {
+        components: { UserCircle },
         name: "App",
         props: [
             'user'
         ],
-        mounted() {
+        created() {
             window.axios.interceptors.request.use(
                 (config) => {
-                    config.data = {
-                        ...config.data,
-                        api_token: this.user.api_token
+                    if(config.method === 'get') {
+                        config.url = config.url + '?api_token=' + this.user.api_token;
+                    } else {
+                        config.data = {
+                            ...config.data,
+                            api_token: this.user.api_token
+                        }
                     }
                     return config;
                 }

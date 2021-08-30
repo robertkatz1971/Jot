@@ -19,7 +19,7 @@ class Contact extends Model
     protected $dates = ['birthday'];
 
     public function path() {
-        return url('/contacts/' . $this->id);
+        return '/contacts/' . $this->id;
     }
 
 }
