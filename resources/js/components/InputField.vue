@@ -11,7 +11,7 @@
 export default {
     name: "InputField",
     props: [
-        'name', 'label','placeholder', 'errors'
+        'name', 'label','placeholder', 'errors', 'data',
     ],
     methods: {
         updateField: function() {
@@ -29,8 +29,12 @@ export default {
             if (this.hasError) {
                 this.errors[this.name] = null;
             }
-        },
-        
+        },  
+    },
+    watch: {
+            data: function (val) {
+                this.value = val;
+        }
     },
     data: function() {
         return {
