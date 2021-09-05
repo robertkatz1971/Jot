@@ -1,5 +1,5 @@
 <template>
-  <contacts-list endpoint="/api/contacts/"></contacts-list>
+  <contacts-list endpoint="/api/birthdays/" showBirthday="true"></contacts-list>
 </template>
 
 <script>

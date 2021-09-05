@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\BirthdaysController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/contacts', [ContactsController::class, 'store']);
     Route::get('/contacts/{contact}', [ContactsController::class, 'show']);
     Route::delete('/contacts/{contact}', [ContactsController::class, 'destroy']);
+    Route::get('/birthdays/', [BirthdaysController::class, 'index']); 
      
 });
 

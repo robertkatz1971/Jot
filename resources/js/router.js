@@ -5,6 +5,7 @@ import ContactCreate from '../views/ContactCreate.vue';
 import ContactShow from '../views/ContactShow.vue';
 import ContactEdit from '../views/ContactEdit.vue'
 import ContactsIndex from '../views/ContactsIndex.vue'
+import BirthdaysIndex from '../views/BirthdaysIndex.vue'
 
 Vue.use(VueRouter);
 
@@ -15,7 +16,7 @@ export default new VueRouter( {
         { path: '/contacts', component: ContactsIndex},
         { path: '/contacts/create', component: ContactCreate},
         { path: '/contacts/:id', component: ContactShow},
-        { path: '/contacts/:id/edit', component: ContactEdit}
+        { path: '/birthdays', component: BirthdaysIndex},
     ],
     mode: 'history'
 });
