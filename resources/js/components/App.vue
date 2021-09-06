@@ -44,11 +44,15 @@
                     <div>
                         Contacts
                     </div>
-                    <user-circle :name="user.name"></user-circle>
+                    <div class="flex items-center">
+                        <search-bar></search-bar>
+                        <user-circle :name="user.name"></user-circle>
+                    </div>
+                    
                     
                 </div>
                 <div class="flex flex-col overflow-y-hidden flex-1">
-                    <router-view class="p-6 overflow-x-hidden"></router-view>
+                    <router-view class="p-6 overflow-x-hidden" :key="$route.fullPath"></router-view>
                 </div>
                 
 
@@ -60,8 +64,9 @@
 
 <script>
     import UserCircle from '../components/UserCircle.vue'
+    import SearchBar from '../components/SearchBar.vue'
     export default {
-        components: { UserCircle },
+        components: { UserCircle, SearchBar },
         name: "App",
         props: [
             'user'

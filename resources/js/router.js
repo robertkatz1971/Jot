@@ -12,7 +12,7 @@ Vue.use(VueRouter);
 export default new VueRouter( {
    
     routes: [
-        { path: '/', component: ExampleComponent},
+        { path: '/', component: ContactsIndex},
         { path: '/contacts', component: ContactsIndex},
         { path: '/contacts/create', component: ContactCreate},
         { path: '/contacts/:id', component: ContactShow},

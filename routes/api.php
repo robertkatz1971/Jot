@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\BirthdaysController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/contacts/{contact}', [ContactsController::class, 'show']);
     Route::delete('/contacts/{contact}', [ContactsController::class, 'destroy']);
     Route::get('/birthdays/', [BirthdaysController::class, 'index']); 
+    Route::post('/search/', [SearchController::class, 'index']);
      
 });
 
