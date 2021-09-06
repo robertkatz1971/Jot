@@ -2372,6 +2372,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2391,6 +2392,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.searchTerm.length < 3) {
+        this.results = [];
         return;
       }
 
@@ -39951,9 +39953,18 @@ var render = function() {
                 "absolute bg-blue-900 text-white rounded-lg p-4 w-96 right-0 mr-6 \n        mt-2 shadow z-20"
             },
             [
-              _vm.results == 0
+              _vm.results == 0 && _vm.searchTerm.length >= 3
                 ? _c("div", [
                     _vm._v("No results found for " + _vm._s(_vm.searchTerm))
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.searchTerm.length < 3
+                ? _c("div", [
+                    _vm._v(
+                      "Minimum search criteria is 3 character: " +
+                        _vm._s(_vm.searchTerm)
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),

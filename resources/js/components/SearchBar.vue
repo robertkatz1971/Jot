@@ -15,7 +15,8 @@
             pr-3 py-1 rounded-full text-sm" type="text" placeholder="Search..." v-model="searchTerm" @input="search" @focus="focus=true">
         <div v-if="focus" class="absolute bg-blue-900 text-white rounded-lg p-4 w-96 right-0 mr-6 
             mt-2 shadow z-20">
-            <div v-if="results == 0">No results found for {{ searchTerm }}</div>
+            <div v-if="results == 0 && searchTerm.length >= 3">No results found for {{ searchTerm }}</div>
+            <div v-if="searchTerm.length < 3">Minimum search criteria is 3 character: {{ searchTerm }}</div>
             <div v-for="result in results" v-bind:key="result.data.contact_id" @click="focus = false">
                 <router-link :to="result.links.self" class="block py-2">
                     <div class="flex items-center">
@@ -52,6 +53,7 @@ export default {
         search: _.debounce(function (e) {
 
             if(this.searchTerm.length < 3) {
+                this.results = [];
                 return;
             }
 

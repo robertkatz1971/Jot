@@ -16,6 +16,7 @@ class SearchController extends Controller
         
         $contacts = Contact::search($data['searchTerm'])
         ->where('user_id', request()->user()->id)
+        ->orderBy('name')
         ->get();
 
         return ContactResource::collection($contacts);
